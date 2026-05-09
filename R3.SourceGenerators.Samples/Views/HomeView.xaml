@@ -1,0 +1,15 @@
+<UserControl x:Class="R3.SourceGenerators.Samples.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="360" d:DesignWidth="640">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="720" HorizontalAlignment="Left" Margin="0,4,0,0">
+            <TextBlock Text="{Binding Heading}" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" />
+            <TextBlock Text="{Binding Intro}" Margin="0,12,0,0" LineHeight="22" TextWrapping="Wrap" Foreground="#CCFFFFFF" />
+            <TextBlock Text="What to try" FontWeight="SemiBold" Margin="0,20,0,8" />
+            <TextBlock Text="{Binding Sections}" LineHeight="24" TextWrapping="Wrap" Foreground="#CCFFFFFF" />
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

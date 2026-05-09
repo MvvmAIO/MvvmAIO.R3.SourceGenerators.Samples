@@ -1,9 +1,66 @@
 ﻿<Window x:Class="R3.SourceGenerators.Samples.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" FontSize="24"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" HorizontalContentAlignment="Center"
-        VerticalContentAlignment="Center" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:R3.SourceGenerators.Samples" mc:Ignorable="d" Title="MainWindow" Height="450"
-        Width="800">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MvvmAIO R3 SourceGenerators — Samples"
+        Height="620"
+        Width="980"
+        MinHeight="440"
+        MinWidth="720"
+        FontSize="14"
+        Background="#FF1E1E1E"
+        Foreground="#FFF1F1F1">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="268" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
+        <Border Grid.Column="0" Padding="0,8,0,8" BorderBrush="#33FFFFFF" BorderThickness="0,0,1,0">
+            <DockPanel LastChildFill="True">
+                <TextBlock DockPanel.Dock="Top"
+                           Margin="16,8,16,12"
+                           FontWeight="SemiBold"
+                           FontSize="16"
+                           Text="Sections" />
+                <ListBox Margin="12,0,12,0"
+                         Padding="4"
+                         ItemsSource="{Binding NavEntries}"
+                         DisplayMemberPath="Title"
+                         SelectedItem="{Binding SelectedEntry, Mode=TwoWay}"
+                         Background="Transparent"
+                         BorderThickness="0">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Foreground" Value="#FFF1F1F1" />
+                            <Setter Property="Padding" Value="10,8" />
+                            <Setter Property="Margin" Value="0,2" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#330096D7" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#220096D7" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </DockPanel>
+        </Border>
+
+        <DockPanel Grid.Column="1">
+            <TextBlock DockPanel.Dock="Top"
+                       Margin="20,16,20,12"
+                       FontSize="12"
+                       Foreground="#88FFFFFF"
+                       Text="MVVM Shell · Content below is swapped per selection (ObservableEvents + R3)." />
+            <Border Margin="16,0,16,16" Padding="20" CornerRadius="6" Background="#12000000" BorderBrush="#22FFFFFF" BorderThickness="1">
+                <ContentControl Content="{Binding CurrentViewModel}" />
+            </Border>
+        </DockPanel>
+    </Grid>
 </Window>

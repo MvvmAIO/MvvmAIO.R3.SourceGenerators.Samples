@@ -1,0 +1,38 @@
+<UserControl x:Class="R3.SourceGenerators.Samples.Views.ObservableEventsClassEventsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="360" d:DesignWidth="640">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Margin="0,0,0,12">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                <Button Content="Raise MyActionEvent1" Padding="16,8" Margin="0,0,8,0"
+                        Command="{Binding RaiseActionEvent1Command}" />
+                <Button Content="Raise MyActionEvent2" Padding="16,8" Margin="0,0,8,0"
+                        Command="{Binding RaiseActionEvent2Command}" />
+                <Button Content="Clear log" Padding="16,8" Command="{Binding ClearLogCommand}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Nullable Action&lt;string?&gt; (value)" Padding="16,8" Margin="0,0,8,0"
+                        Command="{Binding RaiseNullablePayloadCommand}" />
+                <Button Content="Nullable Action&lt;string?&gt; (null)" Padding="16,8" Margin="0,0,8,0"
+                        Command="{Binding RaiseNullablePayloadNullCommand}" />
+                <Button Content="Nullable EventHandler&lt;string?&gt; (value)" Padding="16,8" Margin="0,0,8,0"
+                        Command="{Binding RaiseNullableHandledCommand}" />
+                <Button Content="Nullable EventHandler&lt;string?&gt; (null)" Padding="16,8" Margin="0,0,8,0"
+                        Command="{Binding RaiseNullableHandledNullCommand}" />
+            </StackPanel>
+        </StackPanel>
+        <TextBox Text="{Binding Log, Mode=OneWay}"
+                 Foreground="#FFF1F1F1"
+                 CaretBrush="#FFF1F1F1"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 FontFamily="Consolas"
+                 Background="#14000000"
+                 BorderBrush="#33FFFFFF" />
+    </DockPanel>
+</UserControl>
