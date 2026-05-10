@@ -22,6 +22,7 @@ public sealed class ObservableEventsInputViewModel : ViewModelBase, IDisposable
 
     public void Attach(UIElement visual)
     {
+        
         DisposeSubscription();
         _subscription = visual
             .FromEvents()

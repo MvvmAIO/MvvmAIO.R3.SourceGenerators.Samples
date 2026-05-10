@@ -14,5 +14,11 @@
         <DataTemplate DataType="{x:Type vm:ObservableEventsClassEventsViewModel}">
             <views:ObservableEventsClassEventsView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:FromEventHandlersViewModel}">
+            <views:FromEventHandlersView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:InheritedObservableEventsViewModel}">
+            <views:InheritedObservableEventsView />
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -57,7 +57,7 @@
                        Margin="20,16,20,12"
                        FontSize="12"
                        Foreground="#88FFFFFF"
-                       Text="MVVM Shell · Content below is swapped per selection (ObservableEvents + R3)." />
+                       Text="MVVM shell · sections cover FromEvents, FromEventHandlers (EventHandler pattern), and flattened base-class events." />
             <Border Margin="16,0,16,16" Padding="20" CornerRadius="6" Background="#12000000" BorderBrush="#22FFFFFF" BorderThickness="1">
                 <ContentControl Content="{Binding CurrentViewModel}" />
             </Border>

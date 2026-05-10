@@ -1,0 +1,31 @@
+<UserControl x:Class="R3.SourceGenerators.Samples.Views.InheritedObservableEventsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="360" d:DesignWidth="640">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Margin="0,0,0,12">
+            <TextBlock TextWrapping="Wrap" Foreground="#99FFFFFF" FontSize="12" Margin="0,0,0,10"
+                       Text="Only IssuerDerived is referenced in code (FromEvents()). The analyzer still emits observable properties for IssuerBase.BaseMessage and IssuerDerived.DerivedTick in one wrapper instance."/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Raise BaseMessage (base class)" Padding="14,8" Margin="0,0,8,0"
+                        Command="{Binding RaiseBaseCommand}" />
+                <Button Content="Raise DerivedTick" Padding="14,8" Margin="0,0,8,0"
+                        Command="{Binding RaiseDerivedCommand}" />
+                <Button Content="Clear log" Padding="14,8" Command="{Binding ClearLogCommand}" />
+            </StackPanel>
+        </StackPanel>
+        <TextBox Text="{Binding Log, Mode=OneWay}"
+                 Foreground="#FFF1F1F1"
+                 CaretBrush="#FFF1F1F1"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 FontFamily="Consolas"
+                 FontSize="12"
+                 Background="#14000000"
+                 BorderBrush="#33FFFFFF" />
+    </DockPanel>
+</UserControl>

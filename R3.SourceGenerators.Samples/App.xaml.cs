@@ -1,5 +1,5 @@
-﻿using System.Configuration;
-using System.Data;
+﻿global using R3;
+global using R3.SourceGenerators;
 using System.Windows;
 
 namespace R3.SourceGenerators.Samples;
@@ -8,5 +8,9 @@ namespace R3.SourceGenerators.Samples;
 /// </summary>
 public partial class App : Application
 {
+    public App()
+    {
+        
+    }
 }
 

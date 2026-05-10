@@ -13,6 +13,8 @@ public sealed class ShellViewModel : ViewModelBase
             new NavEntry { Title = "Overview", CreateViewModel = () => new HomeViewModel() },
             new NavEntry { Title = "ObservableEvents · pointer", CreateViewModel = () => new ObservableEventsInputViewModel() },
             new NavEntry { Title = "ObservableEvents · raised events", CreateViewModel = () => new ObservableEventsClassEventsViewModel() },
+            new NavEntry { Title = "FromEventHandlers · EventHandler", CreateViewModel = () => new FromEventHandlersViewModel() },
+            new NavEntry { Title = "ObservableEvents · inheritance", CreateViewModel = () => new InheritedObservableEventsViewModel() },
         ];
 
         _selectedEntry = _navEntries[0];
