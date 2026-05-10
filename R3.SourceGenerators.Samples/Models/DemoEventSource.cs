@@ -1,7 +1,7 @@
 namespace R3.SourceGenerators.Samples.Models;
 
 /// <summary>
-/// Sample CLR events consumed via generated <c>.ObservableEvents()</c> extension methods.
+/// Sample CLR events consumed via generated <c>.FromEvents()</c> extension methods.
 /// </summary>
 public sealed class DemoEventSource
 {

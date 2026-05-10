@@ -10,6 +10,6 @@ public sealed class HomeViewModel : ViewModelBase
 
     public string Sections =>
         "• Overview — this page.\n"
-        + "• ObservableEvents · pointer — MouseMove with ThrottleFirst, subscription owned by the view model.\n"
-        + "• ObservableEvents · raised events — subscribe to Action- and EventHandler-based CLR events on a plain model class, including string? (NRT) payloads (generator 0.1.6+).";
+        + "• ObservableEvents · pointer — chain <c>FromEvents().MouseMove</c> (ReactiveMarbles-style: entry extension method, events as properties), ThrottleFirst + subscription in the view model.\n"
+        + "• ObservableEvents · raised events — subscribe via <c>FromEvents()</c> then per-event properties (e.g. <c>.MyActionEvent1</c>) for Action- and EventHandler-based CLR events, including string? (NRT) payloads.";
 }

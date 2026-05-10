@@ -1,10 +1,12 @@
 using System.Windows;
-using R3.ObservableEvents;
+using System.Windows.Input;
+
+using R3;
 
 namespace R3.SourceGenerators.Samples.ViewModels;
 
 /// <summary>
-/// Subscribes to UI pointer moves via generated <c>ObservableEvents()</c>; view calls <see cref="Attach"/>
+/// Subscribes to UI pointer moves via generated <c>FromEvents()</c>; view calls <see cref="Attach"/>
 /// because the observable source is the WPF visual tree element.
 /// </summary>
 public sealed class ObservableEventsInputViewModel : ViewModelBase, IDisposable
@@ -22,8 +24,8 @@ public sealed class ObservableEventsInputViewModel : ViewModelBase, IDisposable
     {
         DisposeSubscription();
         _subscription = visual
-            .ObservableEvents()
-            .MouseMove()
+            .FromEvents()
+            .MouseMove
             .ThrottleFirst(TimeSpan.FromMilliseconds(50))
             .Subscribe(e =>
             {

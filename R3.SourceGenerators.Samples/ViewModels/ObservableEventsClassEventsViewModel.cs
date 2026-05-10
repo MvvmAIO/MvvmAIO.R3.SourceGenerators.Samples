@@ -1,5 +1,5 @@
 using System.Windows;
-using R3.ObservableEvents;
+using R3;
 using R3.SourceGenerators.Samples.Models;
 
 namespace R3.SourceGenerators.Samples.ViewModels;
@@ -39,21 +39,21 @@ public sealed class ObservableEventsClassEventsViewModel : ViewModelBase, IDispo
         ClearLogCommand = new RelayCommand(() =>
             Log = "Log cleared.\n");
 
-        _actionSub = _source.ObservableEvents()
-            .MyActionEvent1()
+        _actionSub = _source.FromEvents()
+            .MyActionEvent1
             .Subscribe(msg => DispatchLog($"MyActionEvent1(\"{msg}\")"));
 
-        _action2Sub = _source.ObservableEvents()
-            .MyActionEvent2()
+        _action2Sub = _source.FromEvents()
+            .MyActionEvent2
             .Subscribe(tuple => DispatchLog($"MyActionEvent2({tuple.Item1}, {tuple.Item2})"));
 
-        _nullableActionSub = _source.ObservableEvents()
-            .NullablePayloadAction()
+        _nullableActionSub = _source.FromEvents()
+            .NullablePayloadAction
             .Subscribe(msg => DispatchLog(
                 $"NullablePayloadAction(payload is null={msg is null}; value={(msg ?? "<null>")})"));
 
-        _nullableHandledSub = _source.ObservableEvents()
-            .NullableStringHandled()
+        _nullableHandledSub = _source.FromEvents()
+            .NullableStringHandled
             .Subscribe(msg => DispatchLog(
                 $"NullableStringHandled(payload is null={msg is null}; value={(msg ?? "<null>")})"));
     }
