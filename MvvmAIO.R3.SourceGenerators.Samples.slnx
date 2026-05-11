@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="R3.SourceGenerators.Samples/R3.SourceGenerators.Samples.csproj" />
+  <Project Path="R3.SourceGenerators.Samples.Avalonia/R3.SourceGenerators.Samples.Avalonia.csproj" />
 </Solution>

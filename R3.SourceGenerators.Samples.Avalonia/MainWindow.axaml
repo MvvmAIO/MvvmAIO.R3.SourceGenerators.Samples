@@ -1,0 +1,61 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:R3.SourceGenerators.Samples.Avalonia.ViewModels"
+        mc:Ignorable="d"
+        d:DesignWidth="720"
+        d:DesignHeight="560"
+        x:Class="R3.SourceGenerators.Samples.Avalonia.MainWindow"
+        x:DataType="vm:AvaloniaRoutedEventsDemoViewModel"
+        Title="MvvmAIO R3 SourceGenerators — Avalonia sample"
+        Width="780"
+        Height="620"
+        MinWidth="560"
+        MinHeight="480">
+    <Design.DataContext>
+        <vm:AvaloniaRoutedEventsDemoViewModel />
+    </Design.DataContext>
+
+    <ScrollViewer Padding="20">
+        <StackPanel Spacing="16">
+            <TextBlock Text="Avalonia routed events + MvvmAIO.R3.SourceGenerators 0.3.0"
+                       FontSize="20"
+                       FontWeight="SemiBold" />
+            <TextBlock TextWrapping="Wrap"
+                       Opacity="0.85"
+                       Text="Demonstrates FromRoutedEvents (CLR wrapper), FromRoutedEvents(routes, handledEventsToo) via AddHandler, and FromAttachedRoutedEvent on a parent for Button.ClickEvent from children." />
+
+            <Border Padding="16" CornerRadius="8" BorderThickness="1" BorderBrush="#33FFFFFF" Background="#14000000">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" Text="Primary button (FromRoutedEvents)" />
+                    <Button x:Name="PrimaryButton" Content="Click me (routed Click)" HorizontalAlignment="Left" MinWidth="220" />
+                    <TextBlock Text="{Binding PrimaryClickCount, StringFormat='{}{0} routed Click notifications'}" />
+                </StackPanel>
+            </Border>
+
+            <Border Padding="16" CornerRadius="8" BorderThickness="1" BorderBrush="#33FFFFFF" Background="#14000000">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" Text="Tunnel + Bubble with handledEventsToo (AddHandler path)" />
+                    <Button x:Name="DiagnosticsButton" Content="PointerPressed (diagnostics)" HorizontalAlignment="Left" MinWidth="260" />
+                    <TextBlock Text="{Binding PointerDiagLine}" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <Border Padding="16" CornerRadius="8" BorderThickness="1" BorderBrush="#33FFFFFF" Background="#14000000">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" Text="Attached routed event on parent (Button.ClickEvent)" />
+                    <TextBlock TextWrapping="Wrap" Opacity="0.85"
+                               Text="Handlers are registered on the border's child panel; clicks on inner buttons bubble as Button.Click to the panel listener." />
+                    <Border Padding="12" Background="#22000000" CornerRadius="6">
+                        <StackPanel x:Name="AttachedHost" Spacing="8">
+                            <Button Content="Child A" HorizontalAlignment="Left" MinWidth="120" />
+                            <Button Content="Child B" HorizontalAlignment="Left" MinWidth="120" />
+                        </StackPanel>
+                    </Border>
+                    <TextBlock Text="{Binding AttachedClickCount, StringFormat='{}{0} attached Button.Click hits'}" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
