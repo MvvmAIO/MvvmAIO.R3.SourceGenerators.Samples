@@ -1,0 +1,58 @@
+<UserControl x:Class="R3.SourceGenerators.Samples.Views.R3CommandView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" 
+                   Text="[R3Command] Demonstration" 
+                   FontSize="18" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,20"/>
+
+        <!-- Basic Commands -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Basic Commands:" FontWeight="SemiBold" Width="120" VerticalAlignment="Center"/>
+            <Button Content="Execute Basic" Command="{Binding BasicCommand}" Margin="5,0"/>
+            <Button Content="Execute with Param" Command="{Binding WithParamCommand}" CommandParameter="Hello from parameter!" Margin="5,0"/>
+        </StackPanel>
+
+        <!-- Async Command with CanExecute -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Async + CanExecute:" FontWeight="SemiBold" Width="120" VerticalAlignment="Center"/>
+            <Button Content="Execute Async" Command="{Binding AsyncCommand}" Margin="5,0" Width="120"/>
+            <Button Content="Toggle CanExecute" Command="{Binding ToggleCanExecuteCommand}" Margin="5,0"/>
+        </StackPanel>
+
+        <!-- Status Display -->
+        <Border Grid.Row="3" Background="#FFF0F0F0" CornerRadius="4" Padding="10" Margin="0,10">
+            <StackPanel>
+                <TextBlock>
+                    <Run Text="Execution Count: " FontWeight="SemiBold"/>
+                    <Run Text="{Binding ExecutionCount}"/>
+                </TextBlock>
+                <TextBlock Margin="0,5,0,0">
+                    <Run Text="Last Action: " FontWeight="SemiBold"/>
+                    <Run Text="{Binding LastAction}"/>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <!-- Info -->
+        <TextBlock Grid.Row="4" 
+                   Text="This sample demonstrates [R3Command] source generator with CanExecute support. The async command respects the CanExecute observable state."
+                   TextWrapping="Wrap"
+                   Foreground="Gray"
+                   Margin="0,10,0,0"/>
+    </Grid>
+</UserControl>

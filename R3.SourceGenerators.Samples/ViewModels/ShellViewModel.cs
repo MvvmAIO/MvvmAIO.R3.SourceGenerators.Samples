@@ -15,6 +15,7 @@ public sealed class ShellViewModel : ViewModelBase
             new NavEntry { Title = "ObservableEvents · raised events", CreateViewModel = () => new ObservableEventsClassEventsViewModel() },
             new NavEntry { Title = "FromEventHandlers · EventHandler", CreateViewModel = () => new FromEventHandlersViewModel() },
             new NavEntry { Title = "ObservableEvents · inheritance", CreateViewModel = () => new InheritedObservableEventsViewModel() },
+            new NavEntry { Title = "[R3Command] · Commands", CreateViewModel = () => new R3CommandViewModel() },
         ];
 
         _selectedEntry = _navEntries[0];
