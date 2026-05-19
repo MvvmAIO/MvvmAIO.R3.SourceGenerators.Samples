@@ -20,5 +20,11 @@
         <DataTemplate DataType="{x:Type vm:InheritedObservableEventsViewModel}">
             <views:InheritedObservableEventsView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:GenericConstraintObservableEventsViewModel}">
+            <views:GenericConstraintObservableEventsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:R3CommandViewModel}">
+            <views:R3CommandView />
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -1,6 +1,6 @@
 namespace R3.SourceGenerators.Samples.Models;
 
-/// <summary>Base issuer: public instance events are included when codegen runs for <see cref="IssuerDerived"/> + <c>FromEvents()</c>.</summary>
+/// <summary>Base issuer: codegen emits <c>IIssuerBaseEvents</c>; <see cref="IssuerDerived"/> extends it via <c>IIssuerDerivedEvents</c>.</summary>
 public class IssuerBase
 {
     public event Action<string>? BaseMessage;

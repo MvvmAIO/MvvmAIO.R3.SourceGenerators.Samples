@@ -8,7 +8,7 @@ using R3.SourceGenerators.Samples.Models;
 namespace R3.SourceGenerators.Samples.ViewModels;
 
 /// <summary>
-/// Demonstrates generated <c>FromEventHandlers()</c> wrappers that call <c>R3.Observable.FromEventHandler</c>
+/// Demonstrates generated <c>FromEventHandlers()</c> event interfaces that call <c>R3.Observable.FromEventHandler</c>
 /// for <see cref="EventHandler"/> / <see cref="EventHandler{TEventArgs}"/>, custom <c>delegate void (object, T)</c> shapes (via <c>Observable.FromEvent</c>), and <see cref="DispatcherTimer.Tick"/>.
 /// </summary>
 public sealed class FromEventHandlersViewModel : ViewModelBase, IDisposable

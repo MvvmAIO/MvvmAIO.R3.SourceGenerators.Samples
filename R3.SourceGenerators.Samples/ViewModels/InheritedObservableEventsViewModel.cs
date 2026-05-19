@@ -7,7 +7,7 @@ using R3.SourceGenerators.Samples.Models;
 namespace R3.SourceGenerators.Samples.ViewModels;
 
 /// <summary>
-/// Single <c>IssuerDerived.FromEvents()</c> entry: codegen flattens <see cref="IssuerBase.BaseMessage"/> alongside <see cref="IssuerDerived.DerivedTick"/>.
+/// Single <c>IssuerDerived.FromEvents()</c> entry returns <c>IIssuerDerivedEvents</c> (inherits <c>IIssuerBaseEvents</c>).
 /// </summary>
 public sealed class InheritedObservableEventsViewModel : ViewModelBase, IDisposable
 {
@@ -15,7 +15,7 @@ public sealed class InheritedObservableEventsViewModel : ViewModelBase, IDisposa
     private readonly IDisposable _baseSub;
     private readonly IDisposable _derivedSub;
     private string _log =
-        "<c>IssuerDerived</c> only: generated wrapper still exposes events declared on base type.\n";
+        "<c>IssuerDerived.FromEvents()</c> → <c>IIssuerDerivedEvents : IIssuerBaseEvents</c>.\n";
 
     public InheritedObservableEventsViewModel()
     {

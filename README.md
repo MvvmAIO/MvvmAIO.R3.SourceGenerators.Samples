@@ -1,37 +1,60 @@
 # MvvmAIO.R3.SourceGenerators — samples
 
-This solution hosts small runnable apps that exercise [**MvvmAIO.R3.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators) together with [**R3**](https://www.nuget.org/packages/R3).
+This solution hosts small runnable apps that exercise [**MvvmAIO.R3.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators) **0.5.0** together with [**R3**](https://www.nuget.org/packages/R3).
 
 ## Projects
 
 | Project | Description |
 |--------|---------------|
-| `R3.SourceGenerators.Samples` | WPF (.NET 8 Windows) — **ProjectReference** to the Roslyn 4.12 analyzer project in a sibling clone of [MvvmAIO.R3.SourceGenerators](https://github.com/MvvmAIO/MvvmAIO.R3.SourceGenerators) (see `.csproj` path). |
-| `R3.SourceGenerators.Samples.Avalonia` | Avalonia 11 (.NET 8) — references **`MvvmAIO.R3.SourceGenerators` 0.3.0** from NuGet and demonstrates **routed** and **attached routed** observable entry points. |
+| `R3.SourceGenerators.Samples` | WPF (.NET 8 Windows) — NuGet **0.5.0**. Demonstrates `FromEvents`, `FromEventHandlers`, interface hierarchy, generic constraints, and `[R3Command]`. |
+| `R3.SourceGenerators.Samples.Avalonia` | Avalonia 11 (.NET 8) — NuGet **0.5.0**. Demonstrates **routed** and **attached routed** observable entry points. |
 
-## Build (Avalonia sample)
+## WPF sample sections
+
+| Nav item | What it shows |
+|----------|----------------|
+| Overview | Shell intro and section list |
+| ObservableEvents · pointer | `FromEvents().MouseMove` on a WPF element |
+| ObservableEvents · raised events | `Action` / `EventHandler` CLR events, NRT payloads |
+| FromEventHandlers · EventHandler | `FromEventHandlers()` + `DispatcherTimer.Tick` |
+| ObservableEvents · inheritance | `IssuerDerived.FromEvents()` — `IIssuerDerivedEvents : IIssuerBaseEvents` |
+| ObservableEvents · generic constraints | `where T : ConstraintBase, IContributor, IAuditor` — combined event interface |
+| [R3Command] · Commands | Generated commands + `INotifyPropertyChanged.FromEventHandlers()` |
+
+Generated code for `FromEvents` / `FromEventHandlers` uses **event interfaces** (e.g. `IIssuerDerivedEvents`) and internal `*EventsImpl` classes. See the generator repo [design doc](https://github.com/MvvmAIO/MvvmAIO.R3.SourceGenerators/blob/master/docs/design-interface-based-event-generation.md).
+
+## Build
 
 From this directory:
 
 ```bash
+dotnet build R3.SourceGenerators.Samples/R3.SourceGenerators.Samples.csproj -c Release
 dotnet build R3.SourceGenerators.Samples.Avalonia/R3.SourceGenerators.Samples.Avalonia.csproj -c Release
 ```
 
-### NuGet 0.3.0 availability and cache
-
-The Avalonia sample pins **`MvvmAIO.R3.SourceGenerators` 0.3.0** on NuGet. Right after publishing a new version, restore can fail until the package is indexed, or your machine may still resolve an older copy from cache.
-
-If restore does not see **0.3.0** yet:
+If restore does not see **0.5.0** immediately after release:
 
 ```bash
 dotnet nuget locals http-cache --clear
-dotnet restore R3.SourceGenerators.Samples.Avalonia/R3.SourceGenerators.Samples.Avalonia.csproj --force-evaluate
+dotnet restore --force-evaluate
 ```
 
-Or retry after a short delay once [nuget.org/packages/MvvmAIO.R3.SourceGenerators/0.3.0](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators/0.3.0) lists the version.
+Or retry once [nuget.org/packages/MvvmAIO.R3.SourceGenerators/0.5.0](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators/0.5.0) lists the version.
 
 ## Run
+
+WPF:
+
+```bash
+dotnet run --project R3.SourceGenerators.Samples/R3.SourceGenerators.Samples.csproj -c Release
+```
+
+Avalonia:
 
 ```bash
 dotnet run --project R3.SourceGenerators.Samples.Avalonia/R3.SourceGenerators.Samples.Avalonia.csproj -c Release
 ```
+
+## Local generator development
+
+To dogfood a **local** analyzer build instead of NuGet, replace the `PackageReference` in the `.csproj` with a `ProjectReference` to `MvvmAIO.R3.SourceGenerators.Roslyn4120` (see git history before the 0.5.0 sample update).
