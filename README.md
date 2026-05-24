@@ -1,13 +1,13 @@
 # MvvmAIO.R3.SourceGenerators — samples
 
-This solution hosts small runnable apps that exercise [**MvvmAIO.R3.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators) **0.5.0** together with [**R3**](https://www.nuget.org/packages/R3).
+This solution hosts small runnable apps that exercise [**MvvmAIO.R3.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators) **0.6.0** together with [**R3**](https://www.nuget.org/packages/R3).
 
 ## Projects
 
 | Project | Description |
 |--------|---------------|
-| `R3.SourceGenerators.Samples` | WPF (.NET 8 Windows) — NuGet **0.5.0**. Demonstrates `FromEvents`, `FromEventHandlers`, interface hierarchy, generic constraints, and `[R3Command]`. |
-| `R3.SourceGenerators.Samples.Avalonia` | Avalonia 11 (.NET 8) — NuGet **0.5.0**. Demonstrates **routed** and **attached routed** observable entry points. |
+| `R3.SourceGenerators.Samples` | WPF (.NET 8 Windows) — NuGet **0.6.0**. Demonstrates `FromEvents`, `FromEventHandlers`, interface hierarchy, generic constraints, and `[R3Command]`. |
+| `R3.SourceGenerators.Samples.Avalonia` | Avalonia 11 (.NET 8) — NuGet **0.6.0**. Demonstrates **routed** and **attached routed** observable entry points. |
 
 ## WPF sample sections
 
@@ -32,14 +32,14 @@ dotnet build R3.SourceGenerators.Samples/R3.SourceGenerators.Samples.csproj -c R
 dotnet build R3.SourceGenerators.Samples.Avalonia/R3.SourceGenerators.Samples.Avalonia.csproj -c Release
 ```
 
-If restore does not see **0.5.0** immediately after release:
+If restore does not see **0.6.0** immediately after release:
 
 ```bash
 dotnet nuget locals http-cache --clear
 dotnet restore --force-evaluate
 ```
 
-Or retry once [nuget.org/packages/MvvmAIO.R3.SourceGenerators/0.5.0](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators/0.5.0) lists the version.
+Or retry once [nuget.org/packages/MvvmAIO.R3.SourceGenerators/0.6.0](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators/0.6.0) lists the version.
 
 ## Run
 
