@@ -2,6 +2,12 @@
 
 This solution hosts small runnable apps that exercise [**MvvmAIO.R3.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators) **0.6.0** together with [**R3**](https://www.nuget.org/packages/R3).
 
+## Documentation
+
+**Canonical documentation:** [https://mvvmaio.github.io/R3.SourceGenerators.Docs/](https://mvvmaio.github.io/R3.SourceGenerators.Docs/) (VitePress, English + 简体中文) — [Observable events](https://mvvmaio.github.io/R3.SourceGenerators.Docs/generators/observable-events), [R3Command](https://mvvmaio.github.io/R3.SourceGenerators.Docs/generators/r3-command), and **R3SG** diagnostics.
+
+For generator internals, see the repo [design doc](https://github.com/MvvmAIO/MvvmAIO.R3.SourceGenerators/blob/master/docs/design-interface-based-event-generation.md) (contributors).
+
 ## Projects
 
 | Project | Description |
@@ -21,7 +27,7 @@ This solution hosts small runnable apps that exercise [**MvvmAIO.R3.SourceGenera
 | ObservableEvents · generic constraints | `where T : ConstraintBase, IContributor, IAuditor` — combined event interface |
 | [R3Command] · Commands | Generated commands + `INotifyPropertyChanged.FromEventHandlers()` |
 
-Generated code for `FromEvents` / `FromEventHandlers` uses **event interfaces** (e.g. `IIssuerDerivedEvents`) and internal `*EventsImpl` classes. See the generator repo [design doc](https://github.com/MvvmAIO/MvvmAIO.R3.SourceGenerators/blob/master/docs/design-interface-based-event-generation.md).
+Generated code for `FromEvents` / `FromEventHandlers` uses **event interfaces** (e.g. `IIssuerDerivedEvents`) and internal `*EventsImpl` classes. See the [Observable events](https://mvvmaio.github.io/R3.SourceGenerators.Docs/generators/observable-events) guide on the documentation site.
 
 ## Build
 
