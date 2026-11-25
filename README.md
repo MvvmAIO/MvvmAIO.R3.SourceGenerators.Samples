@@ -1,5 +1,10 @@
 # MvvmAIO.R3.SourceGenerators — samples
 
+> [!WARNING]
+> **Archived — these samples are no longer maintained.** The generator they demonstrate has been superseded by **[Skymly/Observables](https://github.com/Skymly/Observables)**. Please migrate to the replacement NuGet package **[Observables.Events.R3](https://www.nuget.org/packages/Observables.Events.R3)**.
+>
+> **本示例仓库已归档，不再维护。** 其演示的生成器已由 **[Skymly/Observables](https://github.com/Skymly/Observables)** 取代，请迁移至替代 NuGet 包 **[Observables.Events.R3](https://www.nuget.org/packages/Observables.Events.R3)**。
+
 This solution hosts small runnable apps that exercise [**MvvmAIO.R3.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.R3.SourceGenerators) **0.6.0** together with [**R3**](https://www.nuget.org/packages/R3).
 
 ## Documentation

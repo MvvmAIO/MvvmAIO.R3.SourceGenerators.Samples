@@ -362,5 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-## Local scratch (see Skymly/AGENTS.md § `.Local`)
+## Local scratch (see ../../../../AGENTS.md § `.Local`)
 .Local/
